@@ -2,7 +2,8 @@
 
 import sys
 import openai
-from paragraph_processing_functions import extract_key_points
+# from paragraph_processing_functions import extract_key_points
+import paragraph_processing_functions
 
 # Main function
 def main(input_file):
@@ -19,7 +20,8 @@ def main(input_file):
         for i, paragraph in enumerate(paragraphs, start=1):
             print(f"Processing paragraph {i} of {len(paragraphs)}")
             # summary = summarize_paragraph(paragraph)
-            summary = extract_key_points(paragraph)
+            # summary = paragraph_processing_functions.extract_key_points(paragraph)
+            summary = paragraph_processing_functions.rewrite_into_bulletpoints(paragraph)
             summaries.append(summary)
         
         # Step 5: Write summaries to a new text file
